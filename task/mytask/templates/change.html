@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Change Password</title>
+	{% load static %}
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="row justify-content-center">
+	<div class="card">
+		<div class="card-header">Change Password</div>
+		<div class="card-body">
+			<form method="POST" action="{% url 'update' data.email %}">
+				{% csrf_token %}
+				<input type="password" name="op" placeholder="Old password"><br><br>
+				<input type="password" name="np1" placeholder="New password"><br><br>
+				<input type="password" name="np2" placeholder="New password again"><br><br>
+				<button class="btn btn-info" type="submit">Update</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
